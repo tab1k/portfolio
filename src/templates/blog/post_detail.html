@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  {% block content %}
+    <article class="blog active" data-page="blog">
+
+        <header>
+          <h2 class="h2 article-title">Блог</h2>
+        </header>
+        
+        <section class="mapbox" data-mapbox>
+            <figure class="image-container">
+                <img src="{{ post.image.url }}">
+            </figure>
+        </section>
+
+        <style>
+            .mapbox figure img {
+                width: 100%;        /* Устанавливаем ширину изображения в 100% от контейнера */
+                height: 100%;       /* Устанавливаем высоту изображения в 100% от контейнера */
+                object-fit: cover;  /* Масштабируем изображение, сохраняя его пропорции, и обрезаем края, если нужно */
+            }
+        </style>
+
+        <section class="blog-posts">
+            {% if post.category %}
+                <h6 style="color: white;">Категория: <b>{{ post.category.name }}</b></h6>
+            {% endif %}
+            <br>
+            <h1 style="color: white;">{{ post.title }}</h1>
+            <h4 style="color: white;">{{ post.content }}</h4>
+            <br>
+            <h6 style="color: white;">Автор: {{ post.author.username }}</h6>
+            <h6 style="color: white;">Дата: {{ post.published_date }}</h6>
+        </section>
+
+      </article>
+  {% endblock %}
+</body>
+</html>

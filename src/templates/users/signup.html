@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+<!doctype html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+        <article class="contact active" data-page="contact">
+        <header>
+              <h3 class="h3 article-title">Регистрация</h3>
+        </header>
+
+        <section class="login-form-container">
+          <div class="login-form">
+            <h3 class="h3 form-title">Регистрация пользователя</h3>
+
+            <!-- Форма регистрации -->
+            <form action="{% url 'users:signup' %}" method="post" class="form" data-form>
+              {% csrf_token %}
+
+              <div class="input-wrapper">
+                {{ form.first_name }}
+                {{ form.last_name }}
+                {{ form.email }}
+                {{ form.username }}
+                {{ form.password1 }}
+                {{ form.password2 }}
+              </div>
+
+              <button class="form-btn" type="submit" data-form-btn>
+                <ion-icon name="person-add-outline"></ion-icon>
+                <span>Зарегистрируйтесь</span>
+              </button>
+            </form>
+
+          </div>
+        </section>
+
+
+
+
+      </article>
+    {% endblock %}
+</body>
+</html>

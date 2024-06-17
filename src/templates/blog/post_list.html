@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+<!doctype html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+        <article class="blog active" data-page="blog">
+            <header>
+                <h2 class="h2 article-title">Блог</h2>
+            </header>
+
+            <div class="category-dropdown" style="margin-bottom: 15px;">
+                <select id="categories" name="categories" onchange="location = this.value;">
+                    <option value="?">Все категории</option>
+                    {% for category in categories %}
+                        <option value="?category={{ category.id }}">{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <section class="blog-posts">
+                <ul class="blog-posts-list">
+                    {% for p in posts %}
+                    <li class="blog-post-item">
+                        <a href="{% url 'blog:post-detail' pk=p.pk %}">
+                            <figure class="blog-banner-box">
+                                <img src="{{ p.image.url }}" alt="{{ p.title }}" loading="lazy">
+                            </figure>
+                            <div class="blog-content">
+                                <div class="blog-meta">
+                                    <p class="blog-category">{{ p.category }}</p>
+                                    <span class="dot"></span>
+                                    <time datetime="2022-02-23">{{ p.published_date }}</time>
+                                </div>
+                                <h3 class="h3 blog-item-title">{{ p.title }}</h3>
+                                <p class="blog-text">{{ p.content }}</p>
+                            </div>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </section>
+
+            <!-- Пагинация -->
+            <div class="pagination">
+                <span class="step-links">
+                    {% if posts.has_previous %}
+                        <a href="?page=1">&laquo; First</a>
+                        <a href="?page={{ posts.previous_page_number }}">Previous</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+                    </span>
+
+                    {% if posts.has_next %}
+                        <a href="?page={{ posts.next_page_number }}">Далее</a>
+                        <a href="?page={{ posts.paginator.num_pages }}">Назад &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
+        </article>
+        {% endblock %}
+
+</body>
+</html>

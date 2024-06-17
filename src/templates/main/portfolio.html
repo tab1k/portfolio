@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+<!doctype html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+        <article class="portfolio active" data-page="portfolio">
+
+        <header>
+          <h2 class="h2 article-title">Портфолио</h2>
+        </header>
+
+        <section class="projects">
+
+          <ul class="filter-list">
+
+            <li class="filter-item">
+              <button class="active" data-filter-btn>Все</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Мобильные приложения</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Веб-Разработка</button>
+            </li>
+
+          </ul>
+
+          <div class="filter-select-box">
+
+            <button class="filter-select" data-select>
+
+              <div class="select-value" data-selecct-value>Select category</div>
+
+              <div class="select-icon">
+                <ion-icon name="chevron-down"></ion-icon>
+              </div>
+
+            </button>
+
+            <ul class="select-list">
+
+              <li class="select-item">
+                <button data-select-item>All</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Web design</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Applications</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Web development</button>
+              </li>
+
+            </ul>
+
+          </div>
+
+          <ul class="project-list">
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="https://stransit.kz">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="{% static 'images/project-1.png' %}" alt="finance" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Standard Transit</h3>
+
+                <p class="project-category">Веб - Разработка</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="https://workbench.kz">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="{% static 'images/pr-2.png' %}" alt="orizon" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">WorkBench</h3>
+
+                <p class="project-category">Веб - Разработка</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="https://bonapart.kz">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="{% static 'images/project-3.png' %}" alt="fundo" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">BonApart</h3>
+
+                <p class="project-category">Веб - Разработка</p>
+
+              </a>
+            </li>
+          </ul>
+
+        </section>
+
+      </article>
+    {% endblock %}
+</body>
+</html>

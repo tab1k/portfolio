@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+        <article class="resume active">
+
+        <header>
+          <h2 class="h2 article-title">Резюме</h2>
+        </header>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Образование</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title"><a style="color:white" href="https://22mektep.edu.kz/ru">Школа гимназия №22</a></h4>
+
+              <span>2008 — 2019</span>
+
+              <p class="timeline-text">
+                Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
+                quas molestias
+                exceptur.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title"><a style="color:white" href="https://sdu.edu.kz/language/ru/">Suleyman Demirel University (SDU)</a></h4>
+
+              <span>2019 — 2023</span>
+
+              <p class="timeline-text">
+                Ratione voluptatem sequi nesciunt, facere quisquams facere menda ossimus, omnis voluptas assumenda est
+                omnis..
+              </p>
+
+            </li>
+
+<!--            <li class="timeline-item">-->
+
+<!--              <h4 class="h4 timeline-item-title">High school of art and design</h4>-->
+
+<!--              <span>2002 — 2004</span>-->
+
+<!--              <p class="timeline-text">-->
+<!--                Duis aute irure dolor in reprehenderit in voluptate, quila voluptas mag odit aut fugit, sed consequuntur-->
+<!--                magni dolores-->
+<!--                eos.-->
+<!--              </p>-->
+
+<!--            </li>-->
+
+          </ol>
+
+        </section>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Опыт</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">РГП Агентство Республики Казахстан по регулированию и развитию финансового рынка</h4>
+
+              <span>2023 — 2024 (Май)</span>
+
+              <p class="timeline-text">
+                Финансовый сектор. Главный специалист IT отдела; Full-Stack разработчик.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Standard Transit Company</h4>
+
+              <span>2022 — 2023</span>
+
+              <p class="timeline-text">
+                Full-Stack разработчик. Разработка профессионально-образовательной платформы.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">MetaCoding Co.</h4>
+
+              <span>2022 — 2023</span>
+
+              <p class="timeline-text">
+                Speaker & Head.
+              </p>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="skill">
+
+          <h3 class="h3 skills-title">Стэк технологий</h3>
+
+          <ul class="skills-list content-card">
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Django (API) </h5>
+                <data value="80">80%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 80%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Fast API</h5>
+                <data value="70">70%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 70%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Vie.js & Nuxt.js</h5>
+                <data value="90">65%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 65%;"></div>
+              </div>
+
+            </li>
+
+
+          </ul>
+
+        </section>
+
+      </article>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+<!doctype html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+        <article class="contact active" data-page="contact">
+        <header>
+          <h2 class="h2 article-title">Контакты</h2>
+        </header>
+
+        <section class="mapbox" data-mapbox>
+          <figure>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d89490.24856314923!2d71.49169169259063!3d51.145345548231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x424580c47db54609%3A0x97f9148dddb19228!2z0JDRgdGC0LDQvdCw!5e0!3m2!1sru!2skz!4v1718377545064!5m2!1sru!2skz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                  width="400" height="300" loading="lazy">
+            </iframe>
+          </figure>
+
+        </section>
+
+        <section class="contact-form">
+
+            <h3 class="h3 form-title">Связаться</h3>
+
+            <form action="" method="post" class="form" data-form>
+                {% csrf_token %}
+                <div class="input-wrapper">
+                    {{ form.fullname }}
+                    {{ form.email }}
+                </div>
+                {{ form.message }}
+                <button class="form-btn" type="submit" data-form-btn>
+                    <ion-icon name="paper-plane"></ion-icon>
+                    <span>Отправить</span>
+                </button>
+            </form>
+
+        </section>
+
+      </article>
+    {% endblock %}
+</body>
+</html>

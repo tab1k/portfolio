@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tab1k - Portfolio</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR
+    -->
+    {% if user.is_authenticated %}
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="{% static 'images/my-avatar.png' %}" alt="Richard hanrick" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Richard hanrick">
+              {% if user.first_name and user.last_name or user.first_name %}
+                {{ user.first_name }} {{ user.last_name }}
+              {% else %}
+                New User
+              {% endif %}
+          </h1>
+
+          <a href="{% url 'users:profile' %}" class="title">Личный кабинет</a>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Показать контакты</span>
+
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Почта</p>
+
+              <a href="mailto:richard@example.com" class="contact-link">{% if user.email %} {{ user.email }} {% else %} tab1k.k.b@gmail.com {% endif %}</a>
+            </div>
+
+          </li>
+
+          {% if user.is_authenticated%}
+
+          {% else %}
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Телефон</p>
+
+              <a href="tel:+12133522795" class="contact-link">{% if user.phone_number %} {{ user.phone_number }} {% else %} +7 (707) 777-2817 {% endif %}</a>
+            </div>
+          </li>
+          {% endif %}
+
+          {% if user.is_authenticated%}
+
+          {% else %}
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Локация</p>
+
+              <address>Казахстан, Астана</address>
+            </div>
+
+          </li>
+          {% endif %}
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+
+          <li class="social-item">
+            <a href="https://www.facebook.com/profile.php?id=61559001111052" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://wa.link/5y8iqw" class="social-link">
+              <ion-icon name="logo-whatsapp"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://www.instagram.com/tab1k.k/" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </aside>
+    {% else %}
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="{% static 'images/my-avatar.png' %}" alt="Richard hanrick" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Richard hanrick">Табигат Карбаев</h1>
+
+          <p class="title">Web Developer</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Показать контакты</span>
+
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Почта</p>
+
+              <a href="mailto:richard@example.com" class="contact-link">tab1k.k.b@gmail.com</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Телефон</p>
+
+              <a href="tel:+12133522795" class="contact-link">+7 (707) 777-2817</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Локация</p>
+
+              <address>Казахстан, Астана</address>
+            </div>
+
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+
+          <li class="social-item">
+            <a href="https://www.facebook.com/profile.php?id=61559001111052" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://wa.link/5y8iqw" class="social-link">
+              <ion-icon name="logo-whatsapp"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://www.instagram.com/tab1k.k/" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </aside>
+    {% endif %}
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+
+
+      {% if user.is_authenticated%}
+        <nav class="navbar">
+        <ul class="navbar-list">
+            {% if user.is_superuser %}
+                <nav class="navbar">
+                    <ul class="navbar-list">
+                        <li class="navbar-item">
+                            <a href="/" class="navbar-link {% if request.resolver_match.view_name == 'main:home' %}active{% endif %}" data-nav-link>Обо мне</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a href="{% url 'main:resume' %}" class="navbar-link {% if request.resolver_match.view_name == 'main:resume' %}active{% endif %}" data-nav-link>Резюме</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a href="{% url 'main:portfolio' %}" class="navbar-link {% if request.resolver_match.view_name == 'main:portfolio' %}active{% endif %}" data-nav-link>Портфолио</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a href="{% url 'blog:post-list' %}" class="navbar-link {% if request.resolver_match.view_name == 'blog:post-list' %}active{% endif %}" data-nav-link>Блог</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a href="{% url 'main:contacts' %}" class="navbar-link {% if request.resolver_match.view_name == 'main:contacts' %}active{% endif %}" data-nav-link>Контакты</a>
+                        </li>
+                        {% if user.is_authenticated %}
+                        <li class="navbar-item">
+                            <form action="{% url 'users:logout' %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="navbar-link">Выйти</button>
+                            </form>
+                        </li>
+                        {% else %}
+                        <li class="navbar-item">
+                            <a href="{% url 'users:signin' %}" class="navbar-link {% if request.resolver_match.view_name == 'users:signin' %}active{% endif %}" data-nav-link>Войти</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                  </nav>
+            {% else %}
+                <li class="navbar-item">
+                    <a href="{% url 'blog:post-list' %}" class="navbar-link {% if request.resolver_match.view_name == 'blog:post-list' %}active{% endif %}" data-nav-link>Блог</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="{% url 'main:contacts' %}" class="navbar-link {% if request.resolver_match.view_name == 'main:contacts' %}active{% endif %}" data-nav-link>Контакты</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="navbar-item">
+                    <form action="{% url 'users:logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="navbar-link">Выйти</button>
+                    </form>
+                </li>
+                {% else %}
+                <li class="navbar-item">
+                    <a href="{% url 'users:signin' %}" class="navbar-link {% if request.resolver_match.view_name == 'users:signin' %}active{% endif %}" data-nav-link>Войти</a>
+                </li>
+                {% endif %}
+            {% endif %}
+        </ul>
+      </nav>
+      {% else %}
+        <nav class="navbar">
+            <ul class="navbar-list">
+                <li class="navbar-item">
+                    <a href="/" class="navbar-link {% if request.resolver_match.view_name == 'main:home' %}active{% endif %}" data-nav-link>Обо мне</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="{% url 'main:resume' %}" class="navbar-link {% if request.resolver_match.view_name == 'main:resume' %}active{% endif %}" data-nav-link>Резюме</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="{% url 'main:portfolio' %}" class="navbar-link {% if request.resolver_match.view_name == 'main:portfolio' %}active{% endif %}" data-nav-link>Портфолио</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="navbar-item">
+                    <a href="{% url 'blog:post-list' %}" class="navbar-link {% if request.resolver_match.view_name == 'blog:post-list' %}active{% endif %}" data-nav-link>Блог</a>
+                </li>
+                {% endif %}
+                <li class="navbar-item">
+                    <a href="{% url 'main:contacts' %}" class="navbar-link {% if request.resolver_match.view_name == 'main:contacts' %}active{% endif %}" data-nav-link>Контакты</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="navbar-item">
+                    <form action="{% url 'users:logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="navbar-link">Выйти</button>
+                    </form>
+                </li>
+                {% else %}
+                <li class="navbar-item">
+                    <a href="{% url 'users:signin' %}" class="navbar-link {% if request.resolver_match.view_name == 'users:signin' %}active{% endif %}" data-nav-link>Войти</a>
+                </li>
+                {% endif %}
+            </ul>
+          </nav>
+      {% endif %}
+
+
+      {% block content %}{% endblock %}
+
+    </div>
+
+  </main>
+
+  <!--
+    - custom js link
+  -->
+  <script src="{% static 'js/script.js' %}"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

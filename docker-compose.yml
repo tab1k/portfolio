@@ -1,0 +1,27 @@
+version: '3'
+services:
+  db:
+    restart: always
+    container_name: portfolio_postgres
+    image: postgres:11
+    ports:
+      - 5432
+    environment:
+      POSTGRES_DB: portfolio_db
+      POSTGRES_USER: tab1k
+      POSTGRES_PASSWORD: TOBI8585
+      POSTGRES_PORT: 5432
+  web:
+    container_name: portfolio_django
+    build: .
+    command: >
+      bash -c  "./manage.py makemigrations &&
+                ./manage.py makemigrations api &&
+                ./manage.py migrate &&
+                ./manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./src:/src:rw
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db

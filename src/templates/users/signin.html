@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+<!doctype html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+        <article class="contact active" data-page="contact">
+        <header>
+              <h2 class="h2 article-title">Вход</h2>
+        </header>
+
+        <section class="login-form-container">
+          <div class="login-form">
+            <h3 class="h3 form-title">Вход в систему</h3>
+
+            <!-- Замените '#' на URL, который обрабатывает вход -->
+            <form action="{% url 'users:signin' %}" class="form" method="post" data-form>
+
+              <!-- Django's CSRF token for security -->
+              {% csrf_token %}
+
+              <div class="input-wrapper">
+                <input type="text" name="username" class="form-input" placeholder="Имя пользователя" required>
+                <input type="password" name="password" class="form-input" placeholder="Пароль" required>
+              </div>
+
+
+              <button class="form-btn" type="submit" data-form-btn>
+                <ion-icon name="log-in"></ion-icon>
+                <span>Войти</span>
+              </button>
+
+              <!-- Ссылка для регистрации, если у пользователя нет аккаунта -->
+              <a class="form-btn" style="margin-top: 10px;" href="{% url 'users:signup' %}">
+                  <ion-icon name="person-add-outline"></ion-icon>
+                  Зарегистрируйтесь
+              </a>
+
+            </form>
+          </div>
+        </section>
+
+
+
+      </article>
+    {% endblock %}
+</body>
+</html>
